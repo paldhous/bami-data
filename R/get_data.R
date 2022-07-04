@@ -1,5 +1,6 @@
 # load required packages
-library(tidyverse)
+library(dplyr)
+library(readr)
 
 # load raw data
 populations <- read_csv("state_pops.csv") %>% 
