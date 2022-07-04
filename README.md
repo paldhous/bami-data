@@ -1,1 +1,1 @@
-# bami-data
+#  Data pipeline for BAMI classes
