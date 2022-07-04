@@ -11,4 +11,4 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Depends: R (>= 4.13)
 Imports:
-    tidyverse (>=1.3.0)
+    tidyverse (>= 1.3.0)
