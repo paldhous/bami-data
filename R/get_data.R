@@ -30,7 +30,7 @@ states_partial <- states %>%
 # write to csv
 write_csv(states, "states_timeline_full.csv", na = "")
 write_csv(states_latest, "states_latest.csv", na = "")
-write_csv(states_partial, "states_timline_partial.csv", na = "")
+write_csv(states_partial, "states_timeline_partial.csv", na = "")
 
   
 
