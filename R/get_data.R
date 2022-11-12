@@ -25,7 +25,7 @@ states_latest <- states %>%
   filter(date == max(date))
 
 states_partial <- states %>%
-  filter(date >= "2021-01-01")
+  filter(date <= Sys.Date() - 547.5)
 
 # write to csv
 write_csv(states, "states_timeline_full.csv", na = "")
