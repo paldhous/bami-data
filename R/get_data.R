@@ -6,13 +6,15 @@ library(readr)
 populations <- read_csv("state_pops.csv") %>% 
   select(state_postal, state_fips, population)
 
-states <- read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv")
+states <- read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv") 
 
 # process data
 states <- inner_join(states, populations, by = c("fips" = "state_fips")) %>%
   group_by(fips) %>%
   mutate(cases_new = cases - lag(cases),
-         deaths_new = deaths - lag(deaths)) %>%
+         deaths_new = deaths - lag(deaths),
+         deaths_new = case_when(date == "2022-11-11" ~ NA_real_,
+                                         TRUE ~ deaths_new)) %>%
   ungroup() %>%
   arrange(state, date) %>%
   select(state,date,cases,deaths,cases_new,deaths_new,state_postal,state_fips = fips,population) %>%
