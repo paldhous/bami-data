@@ -13,7 +13,7 @@ states <- inner_join(states, populations, by = c("fips" = "state_fips")) %>%
   group_by(fips) %>%
   mutate(cases_new = cases - lag(cases),
          deaths_new = deaths - lag(deaths),
-         deaths_new = case_when(date == "2022-11-11" ~ NA_real_,
+         deaths_new = case_when(date == "2022-11-11" ~ 0,
                                          TRUE ~ deaths_new)) %>%
   ungroup() %>%
   arrange(state, date) %>%
